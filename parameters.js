@@ -1,0 +1,1 @@
+export const x = 18, y = 28, num_bombs = 2 // per 10 squares
