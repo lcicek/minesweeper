@@ -25,11 +25,13 @@ function cascadeReveal(square) {
     })
 }
 
-function reveal(button) {
+function handle(button) {
     let square = board.board[button.i][button.j]
 
     if (square.isBomb()) alert("You lose.")
     else cascadeReveal(square, board)
+
+    if (board.gameWon()) alert("You win.")
 }
 
 function newGame() {
@@ -42,13 +44,7 @@ function newGame() {
 
 function createContainer() {
     let container = document.createElement("div")
-    container.style.position = "absolute"
-    container.style.backgroundColor = "black"
-    container.style.margin = "auto"
-    container.style.padding = "0"
-    container.style.left = "50px"
-    container.style.top = "100px"
-    container.style.minWidth = "756px"
+    container.id = "container"
     container.addEventListener('contextmenu', function(event) {
         event.preventDefault()
 
@@ -73,7 +69,7 @@ function start() {
             let sq = board.board[i][j]
             sq.button.textContent = sq.val
             sq.button.onclick = function(event) { // event contains the target button
-                reveal(event.target, board)
+                handle(event.target, board)
             }
     
             row_div.appendChild(sq.button)

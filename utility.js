@@ -48,7 +48,7 @@ export function createButton(i, j) { // creates button with coordinates i,j to r
 export function revealButton(button, bomb_count) {
     let bomb_count_color = color(bomb_count)
     button.style.color = bomb_count_color // reveals text by changing color from transparent
-    button.style.backgroundColor = "rgb(219, 164, 127)" // readability: sets differnet background-color 
+    button.style.backgroundColor = "rgb(219, 164, 127)" // readability: sets different background-color
 }
 
 export function randInt() { // random integer between 1 and 10 (inclusive)

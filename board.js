@@ -50,4 +50,15 @@ export class Board {
 
         return n
     }
+
+    gameWon() { // returns true if all non-bomb squares are revealed
+        for (let i = 0; i < this.x; i++) {
+            for (let j = 0; j < this.y; j++) {
+                let sq = this.board[i][j]
+                if (!sq.isBomb() && sq.hidden) return false
+            }
+        }
+        
+        return true
+    }
 }
